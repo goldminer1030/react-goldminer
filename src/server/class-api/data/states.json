@@ -1,0 +1,62 @@
+{
+  "north": {
+    "ME": "Maine",
+    "MA": "Massachusetts",
+    "NH": "New Hampshire",
+    "VT": "Vermont",
+    "CT": "Connecticut",
+    "RI": "Rhode Island"
+  },
+  "midwest": {
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "IA": "Iowa",
+    "KS": "Kansas",
+    "MI": "Michigan",
+    "MN": "Minnesota",
+    "MO": "Missouri",
+    "NE": "Nebraska",
+    "ND": "North Dakota",
+    "OH": "Ohio",
+    "SD": "South Dakota",
+    "WI": "Wisconsin"
+  },
+  "south": {
+    "AL": "Alabama",
+    "AR": "Arkansas",
+    "FL": "Florida",
+    "GA": "Georgia",
+    "KY": "Kentucky",
+    "LA": "Louisiana",
+    "MS": "Mississippi",
+    "NC": "North Carolina",
+    "OK": "Oklahoma",
+    "SC": "South Carolina",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "VA": "Virginia"
+  },
+  "east": {
+    "DE": "Delaware",
+    "MD": "Maryland",
+    "NJ": "New Jersey",
+    "NY": "New York",
+    "PA": "Pennsylvania",
+    "WV": "West Virginia"
+  },
+  "west": {
+    "AK": "Alaska",
+    "AZ": "Arizona",
+    "CA": "California",
+    "CO": "Colorado",
+    "HI": "Hawaii",
+    "ID": "Idaho",
+    "MT": "Montana",
+    "NV": "Nevada",
+    "NM": "New Mexico",
+    "OR": "Oregon",
+    "UT": "Utah",
+    "WA": "Washington",
+    "WY": "Wyoming"
+  }
+}

@@ -1,0 +1,546 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro);
+
+/* Global Variables */
+
+$star-blue: #0164e0;
+$react-blue: #00c2fe;
+$node-green: #008f66;
+$html-grey: #78808a;
+$cd-blue: #00d8ff;
+$main-font: "Source Sans Pro", sans;
+
+/* General Mixins */
+
+@mixin clear {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+@mixin stretch {
+  height: 100%;
+  width: 100%;
+}
+
+/* Responsive Mixins */
+
+@mixin bigScreen() {
+  @media screen
+  and (min-aspect-ratio: 13/8) {
+    @content
+  }
+}
+
+@mixin portrait() {
+  @media only screen
+  and (orientation: portrait) {
+    @content
+  }
+}
+
+@mixin md_portrait() {
+  @media only screen
+  and (min-width: 420px)
+  and (max-width: 780px)
+  and (orientation: portrait) {
+    @content
+  }
+}
+
+@mixin lg_portrait() {
+  @media only screen
+  and (min-width: 780px)
+  and (orientation: portrait) {
+    @content
+  }
+}
+
+@mixin landscape() {
+  @media only screen
+  and (orientation: landscape) {
+    @content
+  }
+}
+
+@mixin md_landscape() {
+  @media screen
+  and (min-width: 750px)
+  and (max-width: 1080px)
+  and (orientation: landscape) {
+    @content
+  }
+}
+
+@mixin lg_landscape() {
+  @media screen
+  and (min-width: 1080px)
+  and (max-width: 1500px)
+  and (orientation: landscape) {
+    @content
+  }
+}
+
+@mixin wideScreen() {
+  @media screen
+  and (min-aspect-ratio: 4/2) {
+    @content;
+  }
+}
+
+@mixin md_wideScreen() {
+  @media screen
+  and (min-width: 750px)
+  and (max-width: 1080px)
+  and (min-aspect-ratio: 4/2) {
+    @content
+  }
+}
+
+@mixin lg_wideScreen() {
+  @media screen
+  and (min-width: 1080px)
+  and (min-aspect-ratio: 4/2) {
+    @content
+  }
+}
+
+@mixin xl {
+  @media screen
+  and (min-width: 1500px)
+  and (orientation: landscape) {
+    @content
+  }
+}
+
+/* Responsive Resources */
+
+@mixin backgroundImage($screen) {
+  &.#{$screen} {
+    background-image: url('/img/bg/sm/portrait/' + $screen + '.jpg');
+    @include landscape { background-image: url('/img/bg/sm/landscape/' + $screen + '.jpg'); }
+    @include md_portrait { background-image: url('/img/bg/md/portrait/' + $screen + '.jpg'); }
+    @include md_landscape { background-image: url('/img/bg/md/landscape/' + $screen + '.jpg'); }
+    @include lg_portrait { background-image: url('/img/bg/lg/portrait/' + $screen + '.jpg'); }
+    @include lg_landscape { background-image: url('/img/bg/lg/landscape/' + $screen + '.jpg'); }
+    @include xl { background-image: url('/img/bg/xl/landscape/' + $screen + '.jpg'); }
+    @include bigScreen { background-position-y: 50%; }
+  }
+}
+
+@mixin titleImagePortrait($screen, $width: 75%, $top: 5%, $left: 12.5%) {
+  @include portrait {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageMDPortrait($screen, $width: 50%, $top: 10%, $left: 5%) {
+  @include md_portrait {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageLGPortrait($screen, $width: 50%, $top: 10%, $left: 5%) {
+  @include lg_portrait {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageLandscape($screen, $width: 40%, $top: 5%, $left: 10%) {
+  @include landscape {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageMDLandscape($screen, $width: 40%, $top: 1%, $left: 10%) {
+  @include md_landscape {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageLGLandscape($screen, $width: 30%, $top: 4%, $left: 12%) {
+  @include lg_landscape {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageWideScreen($screen, $width: 32%, $top: 3%, $left: 8%) {
+  @include wideScreen {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageMDWideScreen($screen, $width: 32%, $top: 1%, $left: 8%) {
+  @include md_wideScreen {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageLGWideScreen($screen, $width: 32%, $top: 1%, $left: 8%) {
+  @include lg_wideScreen {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin titleImageXL($screen, $width: 32%, $top: 3%, $left: 15%) {
+  @include xl {
+    &.#{$screen} img:first-of-type {
+      width: $width;
+      margin: $top $left;
+    }
+  }
+}
+
+@mixin boxPortrait($screen, $color: $star-blue, $top: 45%, $size: 143%, $width: 90%) {
+  @include portrait {
+    &.#{$screen} div.box {
+      border-top: .5em double $color;
+      border-bottom: .5em double $color;
+      width: $width;
+      top: $top;
+
+      /* iphone 4 */
+      @media screen and (max-height: 500px)
+      and (min-height: 425px) {
+        font-size: $size - 47%;
+        top: $top + 5%;
+      }
+
+      /* iphone 5 */
+      @media screen and (max-height: 550px)
+      and (min-height: 500px) {
+        font-size: $size - 22%;
+      }
+
+      /* iphone 6 */
+      @media screen and (max-height: 595px)
+      and (min-height: 550px)
+      and (max-width: 400px) {
+        font-size: $size - 30%;
+        top: $top + 3%;
+      }
+
+      /* iphone 6 plus */
+      @media screen and (max-height: 745px)
+      and (min-height: 561px)
+      and (min-width: 400px){
+        font-size: $size - 18%;
+        top: $top + 4%;
+      }
+
+      /* iPad */
+      @media screen and (max-height: 1024px)
+      and (min-height: 745px) {
+        font-size: $size - 52%;
+        width: 27em;
+        top: $top + 4%;
+      }
+
+      /* Large */
+      @media screen and (min-height: 1025px) {
+        font-size: $size - 20%;
+        width: 24em;
+        top: $top + 6%;
+      }
+
+    }
+  }
+}
+
+@mixin boxLandscape($screen, $color: $star-blue, $top: 31%, $size: 82%, $width: 25em) {
+  @include landscape {
+    &.#{$screen} div.box {
+
+      /* iphone 5 */
+      border-top: .5em double $color;
+      border-bottom: .5em double $color;
+      font-size: $size - 10%;
+      width: $width;
+      top: $top;
+
+      /* iphone 4 */
+      @media screen and (max-width: 500px) {
+        font-size: $size;
+        top: $top - 5%;
+      }
+
+      /* iphone 6 */
+      @media screen
+      and (min-width: 570px)
+      and (max-width: 667px) {
+        font-size: $size + 17%;
+        width: $width + 2em;
+      }
+
+      /* iphone 6 plus */
+      @media screen and (max-width: 745px)
+      and (min-width: 675px) {
+        width: 27em;
+        font-size: $size + 22%;
+      }
+
+      /* iPad */
+      @media screen and (max-width: 1025px)
+      and (min-width: 745px) {
+        font-size: $size + 20%;
+        width: $width + 2em;
+      }
+
+      /* iPad large */
+      @media screen and (min-width: 1025px)
+      and (max-width: 1367px) {
+        font-size: $size + 50%;
+        width: $width + 2em;
+      }
+
+      /* 1024x600 */
+      @media screen and (min-width: 1000px)
+      and (max-width: 1025px)
+      and (min-height: 500px)
+      and (max-height: 600px) {
+        font-size: $size + 10%;
+        width: $width - 1em;
+        top: $top + 8%;
+      }
+
+      /* 1366x768 */
+      /* 1280x800 */
+      /* 1280x720 */
+      /* 1260x768 */
+      @media screen and (min-width: 1200px)
+      and (max-width: 1600px)
+      and (min-height: 600px)
+      and (max-height: 750px) {
+        font-size: $size + 40%;
+        width: $width - 1em;
+        top: $top + 2%;
+      }
+
+      /* 1280x1024 */
+      @media screen and (min-width: 1200px)
+      and (max-width: 1400px)
+      and (min-height: 750px)
+      and (max-height: 1000px) {
+        font-size: $size + 50%;
+        width: $width;
+        top: $top - 5%;
+      }
+
+      /* 1440x900 */
+      @media screen and (min-width: 1400px)
+      and (max-width: 1600px)
+      and (min-height: 750px)
+      and (max-height: 1000px) {
+        font-size: $size + 50%;
+        width: $width;
+        top: $top;
+      }
+
+      /* 1024x768 */
+      @media screen and (min-width: 1000px)
+      and (max-width: 1200px)
+      and (min-height: 600px)
+      and (max-height: 700px) {
+        font-size: $size + 20%;
+        width: $width + 1em;
+        top: $top - 2%;
+      }
+
+      /* 1920x1080 */
+      /* 1600x1900 */
+      /* 1680x1050 */
+      /* 1920 x 1200 */
+      @media screen and (min-width: 1600px)
+      and (max-width: 1950px)
+      and (min-height: 600px) {
+        font-size: $size + 40%;
+        width: $width - 1em;
+        top: $top - 2%;
+      }
+
+      /* Thunderbolt */
+      @media screen and (min-width: 1950px)
+      and (min-height: 600px) {
+        font-size: $size + 100%;
+        width: $width - 1em;
+        top: $top - 2%;
+      }
+
+    }
+
+  }
+}
+
+@mixin boxContactPortrait($screen: contact, $color: white, $top: 1%, $size: 150%, $width: 90%) {
+  @include portrait {
+    &.#{$screen} div.box {
+      border-top: .5em double $color;
+      border-bottom: .5em double $color;
+      width: $width;
+      top: $top;
+      font-size: $size;
+
+      /* iphone 4 */
+      @media screen and (max-height: 500px)
+      and (min-height: 425px) {
+        font-size: $size - 23%;
+        top: $top + 5%;
+      }
+
+      /* iphone 5 */
+      @media screen and (max-height: 550px)
+      and (min-height: 500px) {
+        font-size: $size - 22%;
+      }
+
+      /* iphone 6 */
+      @media screen and (max-height: 675px)
+      and (min-height: 550px) {
+        font-size: $size - 30%;
+        top: $top + 3%;
+      }
+
+      /* iphone 6 plus */
+      @media screen and (max-height: 745px)
+      and (min-height: 675px) {
+        font-size: $size + 14%;
+      }
+
+      /* iPad */
+      @media screen and (max-height: 1024px)
+      and (min-height: 745px) {
+        font-size: 131%;
+        width: 63%;
+        top: $top + 4%;
+      }
+
+      /* Laptop */
+      @media screen and (min-height: 1025px)
+      and (min-width: 800px) {
+        font-size: 131%;
+        width: 63%;
+        top: $top + 4%;
+      }
+
+      /* Laptop Long */
+      @media screen and (min-height: 1025px)
+      and (max-width: 800px) {
+        width: 90%;
+      }
+
+    }
+  }
+}
+
+@mixin boxContactLandscape($top: 1%, $size: 100%, $width: 90%) {
+  @include landscape {
+
+    &.contact div.box {
+
+      /* iphone 5 & 6 */
+      border-top: .5em double white;
+      border-bottom: .5em double white;
+      font-size: $size;
+      width: $width;
+      top: $top;
+      justify-content: space-around;
+
+      /* iphone 4 */
+      @media screen and (max-width: 500px) {
+        font-size: $size;
+        width: $width + 6%;
+        top: $top - 5%;
+      }
+
+      /* iphone 6 plus */
+      @media screen and (max-width: 745px)
+      and (min-width: 675px) {
+        font-size: $size + 40%;
+      }
+
+      /* iPad */
+      @media screen and (max-width: 1025px)
+      and (min-width: 745px) {
+        font-size: $size + 40%;
+        width: 60%;
+
+        .select-check {
+          font-size: 1.2em;
+        }
+
+      }
+
+      /* Laptop */
+      @media screen and (max-width: 1300px)
+      and (min-width: 1025px) {
+        font-size: $size + 40%;
+        width: 60%;
+
+        .select-check {
+          font-size: 1.2em;
+        }
+      }
+
+      /* HDMI Laptop */
+      @media screen and (max-width: 1500px)
+      and (min-width: 1300px) {
+        font-size: $size + 40%;
+        width: 60%;
+
+        .select-check {
+          font-size: 1.2em;
+        }
+      }
+
+      /* Laptop Long */
+      @media screen and (max-width: 2200px)
+      and (min-width: 1500px) {
+        font-size: $size + 40%;
+        width: 60%;
+
+        .select-check {
+          font-size: 1.2em;
+        }
+      }
+
+      /* Laptop Long */
+      @media screen and (min-width: 2200px) {
+        font-size: $size + 40%;
+        width: 60%;
+
+        .select-check {
+          font-size: 1.2em;
+        }
+      }
+
+    }
+
+  }
+}

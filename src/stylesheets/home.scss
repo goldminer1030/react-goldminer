@@ -1,0 +1,90 @@
+@import "global";
+
+body #react-container section {
+
+  overflow: hidden;
+  background-position: bottom right;
+  background-size: cover;
+
+  @include backgroundImage(home);
+  @include backgroundImage(react);
+  @include backgroundImage(node);
+  @include backgroundImage(html);
+  @include backgroundImage(cd);
+  @include backgroundImage(contact);
+
+  @include titleImagePortrait(home);
+  @include titleImagePortrait(react);
+  @include titleImagePortrait(node);
+  @include titleImagePortrait(html);
+  @include titleImagePortrait(cd);
+  @include titleImageMDPortrait(home, 46%, 15%, 7%);
+  @include titleImageMDPortrait(react);
+  @include titleImageMDPortrait(node);
+  @include titleImageMDPortrait(html, 50%, 13%);
+  @include titleImageMDPortrait(cd, 50%, 15%);
+  @include titleImageLGPortrait(home, 46%, 15%, 7%);
+  @include titleImageLGPortrait(react);
+  @include titleImageLGPortrait(node);
+  @include titleImageLGPortrait(html, 50%, 13%);
+  @include titleImageLGPortrait(cd, 50%, 15%);
+
+  @include titleImageLandscape(home, 50%, -1%);
+  @include titleImageLandscape(react, 40%, 1%);
+  @include titleImageLandscape(node, 40%, 1%);
+  @include titleImageLandscape(html, 55%, 5%, 5%);
+  @include titleImageLandscape(cd, 55%);
+
+  @include titleImageMDLandscape(home, 50%, 3%);
+  @include titleImageMDLandscape(react, 40%, 5%);
+  @include titleImageMDLandscape(node, 40%, 5%);
+  @include titleImageMDLandscape(html, 55%, 10%, 5%);
+  @include titleImageMDLandscape(cd, 55%, 8%);
+
+  @include titleImageLGLandscape(home, 42%, 2%, 10%);
+  @include titleImageLGLandscape(react, 30%, 6%, 10%);
+  @include titleImageLGLandscape(node, 30%, 6%, 10%);
+  @include titleImageLGLandscape(html, 44%, 9%, 7%);
+  @include titleImageLGLandscape(cd, 44%, 6%, 9%);
+
+  @include titleImageXL(home, 32%, 3%, 10%);
+  @include titleImageXL(react, 32%, 3%, 10%);
+  @include titleImageXL(node, 32%, 3%, 10%);
+  @include titleImageXL(html, 35%, 9%, 6%);
+  @include titleImageXL(cd, 35%, 8%, 6%);
+
+  > div.box {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+
+    ul {
+      font-size: 1.3em;
+    }
+
+    h1, p, li {
+      text-shadow: 1px 1px 3px black;
+      padding: 0 0.25em;
+    }
+
+    h1 {
+      text-transform: uppercase;
+    }
+
+  }
+
+  @include boxPortrait(home);
+  @include boxPortrait(react, $react-blue, 20%);
+  @include boxPortrait(node, $node-green, 20%);
+  @include boxPortrait(html, $html-grey, 28%);
+  @include boxPortrait(cd, $cd-blue, 32%);
+  @include boxContactPortrait();
+
+  @include boxLandscape(home);
+  @include boxLandscape(react, $react-blue, 32%);
+  @include boxLandscape(node, $node-green, 32%);
+  @include boxLandscape(html, $html-grey, 32%);
+  @include boxLandscape(cd, $cd-blue, 33%);
+  @include boxContactLandscape();
+
+}

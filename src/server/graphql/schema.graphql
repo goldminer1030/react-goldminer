@@ -1,0 +1,43 @@
+type Lift {
+    name: String
+    type: String
+    capacity: Int
+    status: String
+    manufacturer: String
+    built: Int
+    summer: Boolean
+    night: Boolean
+    elevation_gain: Int
+    time: String
+    hours: String
+    updated: String
+    trails: [Trail]
+}
+
+type Trail {
+    name: String
+    difficulty: String
+    status: String
+    groomed: Boolean
+    snowmaking: Boolean
+    trees: Boolean
+    night: Boolean
+    lifts: [Lift]
+}
+
+type Query {
+    allLifts(status: String): [Lift]
+    allTrails(difficulty: String, status: String): [Trail]
+    lift(name: String!): Lift
+    trail(name: String!): Trail
+}
+
+type Mutation {
+    setLiftStatus(name: String!, status: String!): Lift
+    setTrailStatus(name: String!, status: String!): Trail
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

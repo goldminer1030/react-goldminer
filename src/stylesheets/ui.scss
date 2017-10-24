@@ -1,0 +1,133 @@
+@import "global";
+
+div.home-page>div.social-icons {
+  position: fixed;
+  z-index: 1001;
+  width: 100%;
+  text-align: center;
+  bottom: 1.5em;
+  font-size: 2.5em;
+
+  @include landscape {
+      bottom: 53%;
+      right: 12%;
+      width: 50%;
+  }
+
+  @include md_landscape {
+    bottom: 1.5em;
+    right: 0;
+    width: 100%;
+  }
+
+  @include lg_landscape {
+    bottom: 1.5em;
+    right: 0;
+    width: 100%;
+  }
+
+  @include wideScreen {
+    bottom: 1.5em;
+    right: 0;
+    width: 100%;
+  }
+
+  @include xl {
+    bottom: 1.5em;
+    right: 0;
+    width: 100%;
+  }
+
+  a {
+    margin: 0 .1em;
+    color: white;
+  }
+
+  a, svg {
+    cursor: pointer;
+  }
+}
+
+div.down-button {
+  color: white;
+  z-index: 1001;
+  position: fixed;
+  left: 50%;
+  margin-left: -.5em;
+  cursor: pointer;
+  bottom: .2em;
+  font-size: 3em;
+
+  @include landscape {
+    bottom: 40%;
+    left: 63%;
+  }
+
+  @include md_landscape {
+    bottom: .2em;
+    left: 50%;
+  }
+
+  @include lg_landscape {
+    bottom: .2em;
+    left: 50%;
+  }
+
+  @include wideScreen {
+    bottom: .2em;
+    left: 50%;
+  }
+
+  @include xl {
+    bottom: .2em;
+    left: 50%;
+  }
+
+  >div:first-child {
+    background-color: black;
+    opacity: .4;
+    border-radius: .2em;
+    height: 1em;
+    width: 1em;
+  }
+
+  >svg {
+    transform: rotate(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+}
+
+div.whoops-404 {
+  padding: 1em;
+  color: white;
+}
+
+a.more-link {
+  color: orange;
+  text-decoration: none;
+
+  &:hover {
+    color: yellow;
+  }
+
+  svg {
+    font-size: 1.7em;
+    position: relative;
+    top: -2px;
+  }
+}
+
+p a.more-link {
+  svg {
+    left: -5px;
+  }
+}
+
+li a.more-link {
+  svg {
+    left: -10px;
+  }
+}

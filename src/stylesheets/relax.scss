@@ -1,0 +1,35 @@
+body {
+  background-attachment:fixed;
+}
+
+.skrollable {
+  position:fixed;
+  z-index:100;
+}
+
+.skrollr-mobile .skrollable {
+  position:absolute;
+}
+
+.skrollable .skrollable {
+  position:absolute;
+}
+
+.skrollable .skrollable .skrollable {
+  position:static;
+}
+
+.relax-root {
+  height: 100%;
+}
+
+.scroll-screen {
+  height: 100%;
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  color: white;
+}

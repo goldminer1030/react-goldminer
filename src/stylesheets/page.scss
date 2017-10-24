@@ -1,0 +1,51 @@
+@import "global";
+
+html,
+body,
+#react-container,
+div.home-page,
+div.relax-root {
+  @include clear;
+}
+
+body {
+  font-family: $main-font;
+  font-size: 70%;
+
+  display: flex;
+
+  @media screen and (min-width: 750px) {
+    font-size: 100%;
+  }
+
+}
+
+#react-container {
+  display: block;
+  flex-basis: 100%;
+}
+
+/* Hiding the scrollbar */
+
+html {
+  overflow: -moz-scrollbars-none;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.fadeIn {
+  animation: fadeOverlayOut 1s forwards;
+}
+
+@keyframes fadeOverlayOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
